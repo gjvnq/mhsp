@@ -30,7 +30,7 @@ const router = createBrowserRouter([
         element: <SettingsPage />,
       },
       {
-        path: "@:person",
+        path: ":person",
         element: <PersonPage />,
       },
     ],
