@@ -1,0 +1,55 @@
+@media (prefers-color-scheme: dark) {
+  html {
+      color-scheme: dark;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+img, picture, svg, video {
+  display: block;
+  max-width: 100%;
+}
+
+input, textarea, button, select {
+  font: inherit;
+}
+
+body {
+  background-color: #ddd !important;
+}
+
+:root {
+  --app-min-width: 200px;
+  --app-max-width: 450px;
+  --app-min-height: 500px;
+  --app-max-height: 900px;
+}
+
+html {
+  overflow: auto;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 100vh;
+}
+
+body > div#_root {
+  display: block;
+  width: clamp(var(--app-min-width), 100vw, var(--app-max-width));
+  height: clamp(var(--app-min-height), 100vh, var(--app-max-height));
+  background-color: white;
+  margin: auto;
+}
+
+/* This is a temporary hack */
+body > div#_root > div#_content {
+  padding: 10px;
+}

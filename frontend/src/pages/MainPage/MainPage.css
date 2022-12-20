@@ -1,0 +1,15 @@
+#_main_app {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#_main_app > #_content {
+    flex-grow: 1;
+    /* padding is temporary */
+    padding: 10px;
+}
+
+#_main_app > #_bottom_nav {
+    width: 100%;
+}
