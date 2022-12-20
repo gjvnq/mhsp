@@ -1,6 +1,6 @@
 @media (prefers-color-scheme: dark) {
   html {
-      color-scheme: dark;
+    color-scheme: dark;
   }
 }
 
@@ -10,12 +10,18 @@
   margin: 0;
 }
 
-img, picture, svg, video {
+img,
+picture,
+svg,
+video {
   display: block;
   max-width: 100%;
 }
 
-input, textarea, button, select {
+input,
+textarea,
+button,
+select {
   font: inherit;
 }
 

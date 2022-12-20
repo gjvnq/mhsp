@@ -17,7 +17,7 @@
     "@types/react-dom": "^18.0.9",
     "husky": "^8.0.2",
     "lint-staged": "^13.1.0",
-    "prettier": "^2.8.1",
+    "prettier": "2.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.5.0",
@@ -40,6 +40,7 @@
   },
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
+    "lint": "eslint src/**/*.ts src/**/*.tsx",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

@@ -1,5 +1,3 @@
 export default function SettingsPage() {
-  return (
-    <p>Settings page</p>
-  );
+  return <p>Settings page</p>;
 }

@@ -1,5 +1,3 @@
 export default function MyselfPage() {
-  return (
-    <p>Myself page</p>
-  );
+  return <p>Myself page</p>;
 }

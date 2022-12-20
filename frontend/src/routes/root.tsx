@@ -1,8 +1,6 @@
-import {
-  createBrowserRouter,
-} from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import ErrorPage from "../pages/ErrorPage";
-import HelloWorld from '../pages/HelloWorld';
+import HelloWorld from "../pages/HelloWorld";
 import MainPage from "../pages/MainPage";
 import MyselfPage from "../pages/MyselfPage";
 import PeoplePage from "../pages/PeoplePage";
@@ -12,7 +10,7 @@ import PersonPage from "../pages/PersonPage";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainPage/>,
+    element: <MainPage />,
     errorElement: <ErrorPage />,
     children: [
       {

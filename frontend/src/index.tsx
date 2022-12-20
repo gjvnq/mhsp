@@ -1,13 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import * as serviceWorkerRegistration from './serviceWorkerRegistration';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+import reportWebVitals from "./reportWebVitals";
 import { RouterProvider } from "react-router-dom";
-import router from './routes/root';
+import router from "./routes/root";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('_root') as HTMLElement
+  document.getElementById("_root") as HTMLElement
 );
 
 root.render(

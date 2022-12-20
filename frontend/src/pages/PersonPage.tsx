@@ -1,5 +1,3 @@
 export default function PersonPage() {
-  return (
-    <p>Person page</p>
-  );
+  return <p>Person page</p>;
 }
