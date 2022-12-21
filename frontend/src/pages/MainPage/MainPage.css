@@ -7,7 +7,7 @@
 #_main_app > #_content {
   flex-grow: 1;
   /* padding is temporary */
-  padding: 10px;
+  /* padding: 10px; */
 }
 
 #_main_app > #_bottom_nav {
