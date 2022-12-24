@@ -6,12 +6,11 @@ services:
     container_name: mhsp_frontend
     build:
       context: .
-      dockerfile: frontend/Dockerfile
+      dockerfile: frontend/Dockerfile.dev
     user: "${UID:-1000}:${GID:-1000}"
     working_dir: /app/src
     ports:
       - "3000:3000"
-      - "3001:3001"
     volumes:
       - ./frontend/:/app/src
     command: "./entrypoint.sh"

@@ -1,14 +1,27 @@
 {
-    "version": "0.2.0",
-    "configurations": [
-      {
-        "name": "Chrome",
-        "type": "chrome",
-        "request": "launch",
-        "url": "http://localhost:3000",
-        "webRoot": "${workspaceFolder}/frontend/src",
-        "sourceMapPathOverrides": {
-          "webpack:///src/*": "${webRoot}/*"
-        }
+  "version": "0.2.0",
+  "configurations": [
+
+    {
+      "name": "Launch Frontend",
+      "runtimeExecutable": "yarn",
+      "args": ["start"],
+      "request": "launch",
+      "cwd": "${workspaceFolder}/frontend",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node"
+    },
+    {
+      "name": "Chrome",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}/src",
+      "sourceMapPathOverrides": {
+        "webpack:///src/*": "${webRoot}/*"
       }
-    ]
+    }
+  ]
+}
