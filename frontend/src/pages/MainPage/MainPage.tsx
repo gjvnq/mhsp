@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { BottomNavigation, BottomNavigationAction, Paper } from "@mui/material";
 
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
@@ -7,23 +8,31 @@ import PeopleIcon from "@mui/icons-material/People";
 import "./MainPage.css";
 import { Outlet, useNavigate } from "react-router";
 
-import { useLocation } from "react-router-dom";
+import { useLocation, Location } from "react-router-dom";
+
+function location2tabid(location: Location): Number {
+  switch (location.pathname) {
+    case "/myself":
+      return 0;
+    case "/people":
+      return 1;
+    case "/settings":
+      return 2;
+    default:
+      return 1;
+  }
+}
 
 function MainPage() {
   const location = useLocation();
-  const current_tab = (() => {
-    switch (location.pathname) {
-      case "/myself":
-        return 0;
-      case "/people":
-        return 1;
-      case "/settings":
-        return 2;
-      default:
-        return 1;
-    }
-  })();
+  let current_tab = location2tabid(location);
+
+  useEffect(() => {
+    current_tab = location2tabid(location);
+  }, [location]);
+
   let navigate = useNavigate();
+
   return (
     <div id="_main_app">
       <div id="_content">
