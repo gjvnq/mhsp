@@ -1,6 +1,7 @@
-import { Typography, useTheme } from "@mui/material";
+import { TextField, Typography, useTheme } from "@mui/material";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
+import IndicatorLight, { IndicatorLightStatus } from '../components/IndicatorLight';
 import "./PersonPage.css";
 
 export default function PersonPage() {
@@ -8,6 +9,15 @@ export default function PersonPage() {
   const username = params['person'] || '@darkwiiplayer';
 
   const [date, setDate] = useState(new Date());
+
+  let props = {
+    name: 'Talia - お姉さん',
+    pronouns: 'she/her',
+    lastUpdate: new Date(),
+    timeZone: 'Europe/Berlin',
+    fronting: 'Unclear, perhaps Marcy or Mir',
+    notice: 'Please don’t talk about politics today.'
+  };
 
   function refreshClock() {
     setDate(new Date());
@@ -22,24 +32,42 @@ export default function PersonPage() {
 
   const theme = useTheme();
 
+  function format_date(date: Date) {
+    return date.toLocaleTimeString('en', {timeZone: props.timeZone, hourCycle: 'h24', timeZoneName: 'shortOffset', hour: '2-digit', minute: '2-digit', second: undefined});
+  }
+
   return <div style={theme.typography} className="person_page">
     <Typography className="username" variant="button" paragraph>{username}</Typography>
-    <div className="person_card">
-      <div className="person_card_img"></div>
-      <div className="person_card_info">
-        <span className="person_card_info_name">Talia - お姉さん</span>
-        <span className="person_card_info_pronouns">she/her</span>
-        <span className="person_card_info_last_update">last updated 30 min ago</span>
-      </div>
+    <div className="person_card_img"></div>
+    <div className="person_card_info">
+      <span className="person_card_info_name">{props.name}</span>
+      <span className="person_card_info_pronouns">{props.pronouns} - {props.timeZone}</span>
+      <span className="person_card_info_last_update">last updated 30 min ago</span>
     </div>
-    <div className="grid1">
-      <span className="label gray_label">Local time</span>
-      <span className="value">{date.toLocaleTimeString('en', {timeZone: 'Europe/Berlin', hourCycle: 'h24', timeZoneName: 'shortOffset', hour: '2-digit', minute: '2-digit', second: undefined})}</span>
-      <span className="label gray_label">Fronting</span>
-      <span className="value">Unclear, perhaps Marcy or Mir</span>
-      <span className="label gray_label">Notes</span>
-      <span className="value">Please don’t talk about politics today. </span>
+    <span className="muted-label">Local time</span>
+    <span>{format_date(date)}</span>
+    <span className="muted-label">Fronting</span>
+    <span>{props.fronting}</span>
+    <span className="muted-label">Notice</span>
+    <span>{props.notice}</span>
+    <div id="private_notes_div">
+      <TextField
+        id="private_notes"
+        label="My Private Notes"
+        multiline
+        maxRows={4}
+        fullWidth
+        size="small"
+      />
     </div>
-    <p className="gray_label center">Indicator lights</p>
+    <div className="lights_grid">
+      <p className="indicator-lights">Indicator lights</p>
+      <IndicatorLight status={IndicatorLightStatus.Off} label="Physical Pain"></IndicatorLight>
+      <IndicatorLight status={IndicatorLightStatus.Recovering} label="Physical Pain"></IndicatorLight>
+      <IndicatorLight status={IndicatorLightStatus.Good} label="Physical Pain"></IndicatorLight>
+      <IndicatorLight status={IndicatorLightStatus.Warning} label="Physical Pain"></IndicatorLight>
+      <IndicatorLight status={IndicatorLightStatus.Danger} label="Physical Pain"></IndicatorLight>
+      <IndicatorLight status={IndicatorLightStatus.Crisis} label="Physical Pain"></IndicatorLight>
+    </div>
   </div>;
 }
