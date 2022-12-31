@@ -1,0 +1,10 @@
+div.indicator {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.light {
+    display: inline-block;
+    margin-inline-end: 0.5rem;
+}
