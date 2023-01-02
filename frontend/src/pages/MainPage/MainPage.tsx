@@ -35,7 +35,7 @@ function MainPage() {
 
   return (
     <div id="_main_app">
-      <div id="_content">
+      <div id="_content" style={{overflowY: 'auto'}}>
         <Outlet />
       </div>
       <Paper id="_bottom_nav" elevation={3}>

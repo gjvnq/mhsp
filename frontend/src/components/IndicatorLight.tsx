@@ -15,6 +15,15 @@ export interface IndicatorLightProps {
     label: string
 }
 
+export const status_to_color: Record<IndicatorLightStatus, string> = {
+    off: "#d9d9d9",
+    recovering: "#7ad7ff",
+    good: "#7fff7c",
+    warning: "#fff27e",
+    danger: "#ffc163",
+    crisis: "#ff5a5a"
+  };
+
 const status_to_svg: Record<IndicatorLightStatus, ReactElement> = {
     off: <g transform="translate(-137.97 -120.46)"><ellipse cx="140.09" cy="122.58" rx="2.1167" ry="2.1167" fill="#d9d9d9" stroke-linecap="square" stroke-linejoin="round" stroke-width=".6823"/></g>,
     recovering: <g transform="translate(-137.97 -120.46)" stroke-linejoin="round"><ellipse cx="140.09" cy="122.58" rx="2.1167" ry="2.1167" fill="#7ad7ff" stroke-linecap="square" stroke-width=".6823"/><g fill="none" stroke="#fff" stroke-linecap="round" stroke-width=".26458"><path d="m138.72 122.94 1.3677-0.73542 1.3677 0.73542"/><path d="m138.72 123.44 1.3677-0.73542 1.3677 0.73542"/><path d="m138.72 122.44 1.3677-0.73542 1.3677 0.73542"/></g></g>,
